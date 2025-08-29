@@ -7,7 +7,7 @@ import {
 const logo = "/logo.jpeg"; // public 目录
 
 export default function App() {
-  const [lang, setLang] = useState<"zh" | "ja">("zh");
+  const [lang, setLang] = useState("zh");
 
   const t = useMemo(() => ({
     zh: {
@@ -127,7 +127,7 @@ export default function App() {
   );
 
   /** ————— 组件 ————— */
-  const Article = ({ a }: any) => (
+  const Article = ({ a }) => (
     <article id={a.id} className="scroll-mt-28 bg-white rounded-2xl shadow-sm border p-6 md:p-8">
       <header className="mb-3">
         <h3 className="text-xl md:text-2xl font-semibold">{lang === "zh" ? a.titleZh : a.titleJa}</h3>
@@ -166,7 +166,7 @@ export default function App() {
             <select
               aria-label="Language"
               value={lang}
-              onChange={(e) => setLang(e.target.value as any)}
+              onChange={(e) => setLang(e.target.value)}
               className="border rounded px-2 py-1 text-sm"
             >
               <option value="zh">中文</option>
